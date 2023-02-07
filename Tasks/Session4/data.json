@@ -1,0 +1,19 @@
+[
+    {
+        "name": "BMW",
+        "color": "black",
+        "price": 1000
+        
+    },
+    {
+        "name": "Audi",
+        "color": "red",
+        "price": 2000
+    },
+    {
+        "name": "Mercedes",
+        "color": "blue",
+        "price": 3000
+    }
+]
+

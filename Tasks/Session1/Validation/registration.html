@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td>
+                    <input type="text" name="username" onblur="checkrequired(event)" id="username" required>
+                    <!-- <span>*</span>  -->
+                    <span id="unameError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password" onblur="checkrequired(event)" name="password" id="" required>
+                    <span id="passError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                        onkeyup="checkemail(this,'emailError')" onblur="checkrequired(event)" name="email" id="email"
+                        required>
+                    <span id="emailError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>
+                    <!-- <input type="tel" onkeypress="console.log(event.which)" name="mobile" onblur="checkrequired(this,'mobileError','Mobile number is required')" id="mobile" required> -->
+                    <input type="tel" onkeypress="return (event.which >=48 && event.which <=57 )" name="mobile"
+                        onblur="checkrequired(event)" id="mobile" required>
+                    <span id="mobileError"></span>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="registration" id="">
+    </form>
+    <script>
+        function validateEmail(email) {
+            var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            return re.test(email);
+        }
+
+        function checkrequired(event) {
+            console.log(event);
+            const target = event.target;
+
+            if(target.value==""){
+                target.nextElementSibling.innerHTML = "<b>This field is required!</b>";
+            }else{
+                if(target.type=='email' && !validateEmail(target.value) ){
+                    target.nextElementSibling.innerHTML = "<b>invalid email</b>";
+                    return;
+                }
+                target.nextElementSibling.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

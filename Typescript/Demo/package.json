@@ -1,0 +1,11 @@
+{
+  "name": "my-typescript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/start.js",
+  "scripts": {
+    "start" : "tsc --watch"
+  },
+  "author": "sanjay kachchhava",
+  "license": "ISC"
+}
